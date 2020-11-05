@@ -10,9 +10,10 @@
 ######## SOLUTION
 Remove the Duplicate Primary Keys Entries from Table block.
 
-
+######## ISSUE WITH DATABASE UPON UPGRADE
 [2020-10-30 11:01:49] report.CRITICAL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`magentoprod`.`****_report_viewed_product_index`, CONSTRAINT `****_REPORT_VIEWED_PRD_IDX_PRD_ID_****_SEQUENCE_PRD_SEQUENCE_VAL` FOREIGN KEY (`product_id`) REFERENCES `****_sequence_product` (`), query was: INSERT  INTO `****_report_viewed_product_index` (`visitor_id`,`product_id`,`store_id`) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE `visitor_id` = VALUES(`visitor_id`), `product_id` = VALUES(`product_id`), `store_id` = VALUES(`store_id`) {"exception":"[object] (Zend_Db_Statement_Exception(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`magentoprod`.`****_report_viewed_product_index`, CONSTRAINT `****_REPORT_VIEWED_PRD_IDX_PRD_ID_****_SEQUENCE_PRD_SEQUENCE_VAL` FOREIGN KEY (`product_id`) REFERENCES `****_sequence_product` (`), query was: INSERT  INTO `****_report_viewed_product_index` (`visitor_id`,`product_id`,`store_id`) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE `visitor_id` = VALUES(`visitor_id`), `product_id` = VALUES(`product_id`), `store_id` = VALUES(`store_id`) at /var/www/vendor/magento/zendframework1/library/Zend/Db/Statement/Pdo.php:235, PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`magentoprod`.`****_report_viewed_product_index`, CONSTRAINT `****_REPORT_VIEWED_PRD_IDX_PRD_ID_****_SEQUENCE_PRD_SEQUENCE_VAL` FOREIGN KEY (`product_id`) REFERENCES `****_sequence_product` (`) at /var/www/vendor/magento/zendframework1/library/Zend/Db/Statement/Pdo.php:228)"} []
-
+######## SOLUTION 
+Upgrade Wasn't Successful. re-upgrade
 
 UPGRADING FROM 2.3 to 2.4
 ######## ISSUE IN COMPOSER
