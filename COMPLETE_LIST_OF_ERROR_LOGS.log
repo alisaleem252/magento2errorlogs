@@ -1,0 +1,22 @@
+# MAGENTO UPGRADE CRITICAL ERROR LOGS
+
+
+
+
+
+
+######## ISSUE WITH DATABASE UPON UPGRADE
+[2020-10-28 22:47:05] report.CRITICAL: Item (Magento\Framework\View\Element\UiComponent\DataProvider\Document) with the same ID "1" already exists. {"exception":"[object] (Exception(code: 0): Item (Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\Document) with the same ID \"1\" already exists. at /var/www/vendor/magento/framework/Data/Collection.php:405)"} []
+######## SOLUTION
+Remove the Duplicate Primary Keys Entries from Table block.
+
+
+[2020-10-30 11:01:49] report.CRITICAL: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`magentoprod`.`****_report_viewed_product_index`, CONSTRAINT `****_REPORT_VIEWED_PRD_IDX_PRD_ID_****_SEQUENCE_PRD_SEQUENCE_VAL` FOREIGN KEY (`product_id`) REFERENCES `****_sequence_product` (`), query was: INSERT  INTO `****_report_viewed_product_index` (`visitor_id`,`product_id`,`store_id`) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE `visitor_id` = VALUES(`visitor_id`), `product_id` = VALUES(`product_id`), `store_id` = VALUES(`store_id`) {"exception":"[object] (Zend_Db_Statement_Exception(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`magentoprod`.`****_report_viewed_product_index`, CONSTRAINT `****_REPORT_VIEWED_PRD_IDX_PRD_ID_****_SEQUENCE_PRD_SEQUENCE_VAL` FOREIGN KEY (`product_id`) REFERENCES `****_sequence_product` (`), query was: INSERT  INTO `****_report_viewed_product_index` (`visitor_id`,`product_id`,`store_id`) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE `visitor_id` = VALUES(`visitor_id`), `product_id` = VALUES(`product_id`), `store_id` = VALUES(`store_id`) at /var/www/vendor/magento/zendframework1/library/Zend/Db/Statement/Pdo.php:235, PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`magentoprod`.`****_report_viewed_product_index`, CONSTRAINT `****_REPORT_VIEWED_PRD_IDX_PRD_ID_****_SEQUENCE_PRD_SEQUENCE_VAL` FOREIGN KEY (`product_id`) REFERENCES `****_sequence_product` (`) at /var/www/vendor/magento/zendframework1/library/Zend/Db/Statement/Pdo.php:228)"} []
+
+
+UPGRADING FROM 2.3 to 2.4
+######## ISSUE IN COMPOSER
+[Sat Oct 31 20:27:41.367219 2020] [core:notice] [pid 742] AH00094: Command line: '/usr/sbin/apache2'
+[Sat Oct 31 20:27:47.787886 2020] [php7:warn] [pid 745] [client 39.45.52.79:61132] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in /var/www/html/vendor/zendframework/zend-stdlib/src/ArrayObject.php on line 426, referer:
+######## SOLUTION
+USE COMPOSER WITH PHP7.1
