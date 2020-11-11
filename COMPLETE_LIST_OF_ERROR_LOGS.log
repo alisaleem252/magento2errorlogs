@@ -8,6 +8,8 @@
 ######## ISSUE WITH DATABASE UPON UPGRADE
 [2020-10-28 22:47:05] report.CRITICAL: Item (Magento\Framework\View\Element\UiComponent\DataProvider\Document) with the same ID "1" already exists. {"exception":"[object] (Exception(code: 0): Item (Magento\\Framework\\View\\Element\\UiComponent\\DataProvider\\Document) with the same ID \"1\" already exists. at /var/www/vendor/magento/framework/Data/Collection.php:405)"} []
 ######## SOLUTION
+_cms_block
+_cms_page
 Remove the Duplicate Primary Keys Entries from Table block.
 
 ######## ISSUE WITH DATABASE UPON UPGRADE
