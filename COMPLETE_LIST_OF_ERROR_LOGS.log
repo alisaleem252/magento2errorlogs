@@ -23,7 +23,7 @@ Dotdigitalgroup_Enterprise data: current version - none, required version - 1.0.
 MSP_TwoFactorAuth data: current version - 2.2.0, required version - 3.1.0
 MSP_ReCaptcha data: current version - 1.5.0, required version - 1.6.0 [] []
 ######## SOLUTION 
-Check the version of Module in Module config file, if it is up to date then update the data base table mgrc_setup_module change the current version manually.
+Check the version of Module in Module config file, if it is up to date then update the data base table ***_setup_module change the current version manually.
 
 
 UPGRADING FROM 2.3 to 2.4
@@ -39,7 +39,7 @@ USE COMPOSER WITH PHP7.1
 ######### ISSUE WITH DATABASE
 SQLSTATE[23000]: Integrity constraint violation: 1452 
 Cannot add or update a child row: a foreign key constraint 
-fails (`magentoprod`.`***_magento_salesrule_filter`, 
+fails (`***rod`.`***_magento_salesrule_filter`, 
 CONSTRAINT `FK_05955C1E7*****************2355E` FOREIGN KEY (`rule_id`) 
 REFERENCES `***_sequence_salesrule` 
 (`sequence_value`) ON DELETE CASCAD), query was: 
