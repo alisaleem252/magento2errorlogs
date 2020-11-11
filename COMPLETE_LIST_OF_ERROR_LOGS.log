@@ -32,3 +32,20 @@ UPGRADING FROM 2.3 to 2.4
 [Sat Oct 31 20:27:47.787886 2020] [php7:warn] [pid 745] [client 39.45.52.79:61132] PHP Warning:  "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? in /var/www/html/vendor/zendframework/zend-stdlib/src/ArrayObject.php on line 426, referer:
 ######## SOLUTION
 USE COMPOSER WITH PHP7.1
+
+
+
+
+######### ISSUE WITH DATABASE
+SQLSTATE[23000]: Integrity constraint violation: 1452 
+Cannot add or update a child row: a foreign key constraint 
+fails (`magentoprod`.`***_magento_salesrule_filter`, 
+CONSTRAINT `FK_05955C1E7*****************2355E` FOREIGN KEY (`rule_id`) 
+REFERENCES `***_sequence_salesrule` 
+(`sequence_value`) ON DELETE CASCAD), query was: 
+INSERT INTO `***_magento_salesrule_filter` (`rule_id`, `group_id`, `weight`, `filter_text`, `filter_text_generator_class`, `filter_text_generator_arguments`) VALUES (?, ?, ?, ?, ?, ?)
+######## SOLUTIONRUN FOLLOWING SQL COMMAND
+ALTER TABLE `***_magento_salesrule_filter` DROP FOREIGN KEY `FK_0***B20D2355E`
+don't forget to replace the *** with real prefix
+
+
