@@ -47,7 +47,14 @@ REFERENCES `***_sequence_salesrule`
 (`sequence_value`) ON DELETE CASCAD), query was: 
 INSERT INTO `***_magento_salesrule_filter` (`rule_id`, `group_id`, `weight`, `filter_text`, `filter_text_generator_class`, `filter_text_generator_arguments`) VALUES (?, ?, ?, ?, ?, ?)
 ######## SOLUTIONRUN FOLLOWING SQL COMMAND
-ALTER TABLE `***_magento_salesrule_filter` DROP FOREIGN KEY `FK_0***B20D2355E`
+INSERT INTO ***_sequence_salesrule SELECT entity_id FROM mgrc_magento_salesrule_filter
+
 don't forget to replace the *** with real prefix
+// THIS NEED TO BE REVERTED ON PRODUCTION
+ALTER TABLE `***_magento_salesrule_filter` DROP FOREIGN KEY `FK_0***B20D2355E`
+So we will run this 
+php -f bin/magento setup:db-schema:upgrade
+
+
 
 
